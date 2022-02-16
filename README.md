@@ -1,3 +1,3 @@
 # pterodactyl-nginx
 
-self explanatory
+Forked from https://gitlab.com/tenten8401/pterodactyl-nginx
