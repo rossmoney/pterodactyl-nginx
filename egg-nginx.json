@@ -7,7 +7,7 @@
     "name": "Nginx",
     "author": "unknown@unknown.com",
     "description": "Nginx",
-    "image": "registry.gitlab.com\/tenten8401\/pterodactyl-nginx",
+    "image": "ghcr.io\/rossmoney\/pterodactyl-nginx-php8",
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{\r\n    \"nginx\/conf.d\/default.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    listen \": \"    listen {{server.build.default.port}};\"\r\n        }\r\n    }\r\n}",
