@@ -4,10 +4,10 @@
         "version": "PTDL_v1"
     },
     "exported_at": "2018-10-31T12:16:49-04:00",
-    "name": "Nginx",
+    "name": "Nginx with PHP 8.0",
     "author": "unknown@unknown.com",
     "description": "Nginx",
-    "image": "ghcr.io\/rossmoney\/pterodactyl-nginx-php8",
+    "image": "ghcr.io\/rossmoney\/pterodactyl-nginx-php8:master",
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{\r\n    \"nginx\/conf.d\/default.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    listen \": \"    listen {{server.build.default.port}};\"\r\n        }\r\n    }\r\n}",
