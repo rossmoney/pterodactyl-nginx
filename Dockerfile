@@ -1,14 +1,14 @@
 FROM ubuntu:focal
 
+# Update repositories list
+RUN apt update && apt upgrade -y
+
 # Add "add-apt-repository" command
 RUN apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg sudo cron
 
 # Add additional repositories for PHP, Redis, and MariaDB
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:chris-lea/redis-server
-
-# Update repositories list
-RUN apt update
 
 # Add universe repository if you are on Ubuntu 18.04
 RUN apt-add-repository universe
