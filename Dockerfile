@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update repositories list
 RUN apt update && apt upgrade -y
 
-RUN apt -y install cron nano htop
+RUN apt -y install cron nano htop sudo
 
 # Add "add-apt-repository" command
 RUN apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
