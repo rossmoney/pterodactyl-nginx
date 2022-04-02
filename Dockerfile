@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update repositories list
 RUN apt update && apt upgrade -y
 
-RUN apt -y install sudo cron
+RUN apt -y install sudo cron nano htop
 RUN useradd -m container && echo "container:container" | chpasswd && adduser container sudo
 
 # Add "add-apt-repository" command
