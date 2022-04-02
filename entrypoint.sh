@@ -11,4 +11,4 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 ${MODIFIED_STARTUP}
 
 echo "Running cron..."
-cron && tail -f /home/container/logs/cron.log
+cron -f -l 2 

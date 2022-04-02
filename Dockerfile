@@ -13,7 +13,7 @@ RUN apt -y install software-properties-common curl apt-transport-https ca-certif
 
 # Add additional repositories for PHP, Redis, and MariaDB
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
-RUN add-apt-repository -y ppa:chris-lea/redis-server
+#RUN add-apt-repository -y ppa:chris-lea/redis-server
 
 # Add universe repository if you are on Ubuntu 18.04
 RUN apt-add-repository universe

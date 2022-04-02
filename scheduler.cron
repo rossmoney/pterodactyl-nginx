@@ -1,1 +1,1 @@
-* * * * * php /home/container/webroot/artisan schedule:run >> /home/container/logs/cron.log 2>&1
+* * * * * php /home/container/webroot/artisan schedule:run >/proc/1/fd/1 2>/proc/1/fd/2
