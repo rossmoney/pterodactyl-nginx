@@ -12,8 +12,8 @@ COPY ./queue.conf /etc/supervisor/conf.d/queue.conf
 
 RUN sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
 
-RUN sudo supervisorctl reread
-RUN sudo supervisorctl update
+#RUN sudo supervisorctl reread
+#RUN sudo supervisorctl update
 
 # Add additional repositories for PHP, Redis, and MariaDB
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
