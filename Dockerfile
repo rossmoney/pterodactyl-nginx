@@ -13,6 +13,8 @@ RUN add-apt-repository -y ppa:chris-lea/redis-server
 # Add universe repository if you are on Ubuntu 18.04
 RUN apt-add-repository universe
 
+RUN apt update
+
 # Install Dependencies
 RUN apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} nginx tar unzip
 
