@@ -24,7 +24,6 @@ RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/
 
 COPY ./queue.conf /etc/supervisor/conf.d/queue.conf
 
-RUN sudo supervisorctl reread
 RUN sudo supervisorctl update
 
 COPY ./scheduler.cron /etc/cron.d/scheduler.cron
