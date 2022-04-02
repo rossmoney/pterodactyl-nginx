@@ -1,5 +1,7 @@
 FROM ubuntu:focal
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # Update repositories list
 RUN apt update && apt upgrade -y
 
