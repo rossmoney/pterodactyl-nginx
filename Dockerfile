@@ -20,27 +20,12 @@ RUN apt -y install php8.0 php8.0-cli php8.0-gd php8.0-mysql php8.0-pdo php8.0-mb
 
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN echo "# Pterodactyl Queue Worker File\
-# ----------------------------------\
-\
-[Unit]\
-Description=Pterodactyl Queue Worker\
-\
-[Service]\
-# On some systems the user and group might be different.\
-# Some systems use `apache` or `nginx` as the user and group.\
-User=www-data\
-Group=www-data\
-Restart=always\
-ExecStart=/usr/bin/php /home/container/webroot/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3\
-StartLimitInterval=180\
-StartLimitBurst=30\
-RestartSec=5s\
-\
-[Install]\
-WantedBy=multi-user.target" >> /etc/systemd/system/pteroq.service
+COPY ./scheduler.cron /etc/cron.d/scheduler.cron
 
-RUN sudo systemctl enable --now pteroq.service
+RUN chmod 0644 /etc/cron.d/scheduler.cron
+
+# Apply cron job
+RUN crontab /etc/cron.d/scheduler.cron
 
 USER container
 ENV  USER container
