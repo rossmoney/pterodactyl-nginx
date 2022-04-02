@@ -1,7 +1,22 @@
 FROM ubuntu:focal
 
-RUN apt update && apt install -y ca-certificates nginx
-RUN apt install -y sudo php8 php8-fpm php8-pecl-mcrypt php8-soap php8-openssl php8-gmp php8-pdo_odbc php8-json php8-dom php8-pdo php8-zip php8-mysqli php8-sqlite3 php8-apcu php8-pdo_pgsql php8-bcmath php8-gd php8-odbc php8-pdo_mysql php8-pdo_sqlite php8-gettext php8-xmlreader php8-bz2 php8-iconv php8-pdo_dblib php8-curl php8-ctype php8-phar php8-fileinfo php8-mbstring php8-session php8-tokenizer crontab
+# Add "add-apt-repository" command
+RUN apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg sudo cron
+
+# Add additional repositories for PHP, Redis, and MariaDB
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+RUN add-apt-repository -y ppa:chris-lea/redis-server
+
+# Update repositories list
+RUN apt update
+
+# Add universe repository if you are on Ubuntu 18.04
+RUN apt-add-repository universe
+
+# Install Dependencies
+RUN apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} nginx tar unzip
+
+RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN echo "# Pterodactyl Queue Worker File\
 # ----------------------------------\
