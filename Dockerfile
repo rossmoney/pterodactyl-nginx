@@ -22,6 +22,8 @@ RUN apt -y install php8.0 php8.0-cli php8.0-gd php8.0-mysql php8.0-pdo php8.0-mb
 
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN sudo update-alternatives --config python
+
 COPY ./queue.conf /etc/supervisor/conf.d/queue.conf
 
 RUN sudo supervisorctl update
