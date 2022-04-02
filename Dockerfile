@@ -5,18 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update repositories list
 RUN apt update && apt upgrade -y
 
-RUN apt -y install sudo cron nano htop
+RUN apt -y install sudo cron nano htop screen
 RUN useradd -m container && echo "container:container" | chpasswd && adduser container sudo
 
 # Add "add-apt-repository" command
-RUN apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg python2 supervisor
-
-COPY ./queue.conf /etc/supervisor/conf.d/queue.conf
-
-RUN sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
-
-#RUN sudo supervisorctl reread
-#RUN sudo supervisorctl update
+RUN apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
 
 # Add additional repositories for PHP, Redis, and MariaDB
 RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
