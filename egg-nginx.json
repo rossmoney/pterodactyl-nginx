@@ -4,10 +4,10 @@
         "version": "PTDL_v1"
     },
     "exported_at": "2018-10-31T12:16:49-04:00",
-    "name": "Nginx with PHP 8.0",
+    "name": "Nginx with PHP 8.1",
     "author": "unknown@unknown.com",
     "description": "Nginx",
-    "image": "ghcr.io\/rossmoney\/pterodactyl-nginx-php8:master",
+    "image": "ghcr.io\/rossmoney\/pterodactyl-nginx-php81:master",
     "startup": "{{STARTUP_CMD}}",
     "config": {
         "files": "{\r\n    \"nginx\/conf.d\/default.conf\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"    listen \": \"    listen {{server.build.default.port}};\"\r\n        }\r\n    }\r\n}",
@@ -17,7 +17,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/github.com\/rossmoney\/pterodactyl-nginx-php8.git .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
+            "script": "#!\/bin\/ash\r\n\r\ncd \/mnt\/server\r\n\r\napk --update add git\r\n\r\ngit clone https:\/\/github.com\/rossmoney\/pterodactyl-nginx-php81.git .\/temp\r\n\r\ncp -r .\/temp\/nginx \/mnt\/server\/\r\ncp -r .\/temp\/php-fpm \/mnt\/server\/\r\ncp -r .\/temp\/webroot \/mnt\/server\/\r\ncp .\/temp\/start.sh \/mnt\/server\/\r\n\r\nchmod +x \/mnt\/server\/start.sh\r\n\r\nrm -rf .\/temp",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
