@@ -1,3 +1,3 @@
-# pterodactyl-nginx-php81
+# pterodactyl-nginx
 
 Forked from https://gitlab.com/tenten8401/pterodactyl-nginx
