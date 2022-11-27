@@ -24,7 +24,6 @@ RUN apt -y install php8.1 php8.1-cli php8.1-gd php8.1-mysql php8.1-pdo php8.1-mb
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY ./scheduler.cron /etc/cron.d/scheduler.cron
-COPY ./hosts /tmp/hosts
 
 RUN chmod 0644 /etc/cron.d/scheduler.cron
 
