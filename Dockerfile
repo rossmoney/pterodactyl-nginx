@@ -24,7 +24,7 @@ RUN apt -y install php7.4-intl php7.4-imagick php7.4 php7.4-cli php7.4-gd php7.4
 RUN curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY ./scheduler.cron /etc/cron.d/scheduler.cron
-RUN echo "127.0.0.1 chibishots.photography" >> /etc/hosts
+COPY ./hosts /tmp/hosts
 
 RUN chmod 0644 /etc/cron.d/scheduler.cron
 
